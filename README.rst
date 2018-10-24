@@ -1,4 +1,4 @@
-Flask-Full
+Flask-Crunchy
 
 Flask-Crunchy is a boilerplate framework on top of flask for developing large api backend applications quickly using flask. Built in support for CLI, celery, websocket, eventlet, mongoengine orm, swagger-ui api docs and sphinx docs.
 
