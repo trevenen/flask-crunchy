@@ -20,7 +20,7 @@ For Centos 6.10 min install
 
     yum update -y
     yum groupinstall -y "development tools"
-    yum install -y wget zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
+    yum install -y wget ntp zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
     cd /usr/src
     wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
     tar zxf Python-3.7.1.tgz 
@@ -45,7 +45,18 @@ For Centos 7
     yum -y install https://centos7.iuscommunity.org/ius-release.rpm    
     yum -y install epel-release
     yum -y update
-    yum -y install vim screen yum-utils mongodb redis
+    yum -y install ntp vim screen yum-utils mongodb redis monit
+    timedatectl set-timezone America/Boise
+    systemctl enable ntpd
+    systemctl start ntpd
+    less /etc/ntp.conf
+    systemctl start monit
+    systemctl enable monit
+    less /etc/monitrc
+    firewall-cmd --permanent --new-zone=redis
+    firewall-cmd --permanent --zone=redis --add-port=6379/tcp
+    firewall-cmd --permanent --zone=redis --add-source=127.0.0.1
+    firewall-cmd --reload
     systemctl start redis.service
     systemctl enable redis
     systemctl status redis.service
