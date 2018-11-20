@@ -13,18 +13,23 @@ Before you clone this make sure you have completed the Pre-required Setup Tasks:
 * MongoDB
 * Redis (Remember to secure Redis to private ip)
 
-For Centos 6.10
-* yum install gcc openssl-devel bzip2-devel
-* cd /usr/src
-* wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
-* tar zxf Python-3.7.1.tgz
-* cd Python-3.7.1
-* ./configure --enable-optimizations
-* make altinstall
-* rm /usr/src/Python-3.7
-* python3.7 -V
-* python3.7 -m venv flask
 
+
+For Centos 6.10:
+
+.. code:: shell / CLI
+
+    yum install gcc openssl-devel bzip2-devel
+    cd /usr/src
+    wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
+    tar zxf Python-3.7.1.tgz 
+    cd Python-3.7.1
+    ./configure --enable-optimizations
+    make altinstall
+    rm /usr/src/Python-3.7
+    python3.7 -V
+    python3.7 -m venv flask
+    
 
 For Ubuntu 18.04 LTS desktop or server
 
