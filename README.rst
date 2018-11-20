@@ -45,11 +45,11 @@ For Centos 7
     yum -y install yum-utils
     yum -y groupinstall development
     yum -y install https://centos7.iuscommunity.org/ius-release.rpm
-    yum -y install python37u
-    python3.7 -V
-    yum -y install python37u-pip
-    yum -y install python37u-devel
-    python3.7 -m venv fc
+    yum -y install python36u \; \#(has a slightly lower minor release number than the EPEL one)
+    python3.6 -V
+    yum -y install python36u-pip
+    yum -y install python36u-devel
+    python3.6 -m venv fc
     cd fc
     git clone https@github.com:trevenen/flask-crunchy.git
     cd flask-crunchy (rename repository directory to desired value)
