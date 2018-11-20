@@ -4,14 +4,14 @@ Flask-Crunchy is a boilerplate framework on top of flask for developing large ap
 
 Usage
 -----
-Flask-Crunchy requires  minimum **python 3.6**.
+Flask-Crunchy requires  minimum **python 3.6**. 
 
-Before you clone this make sure you have completed the Pre-required Setup Tasks:
+Before you clone this make sure you have completed the Pre-required Setup Tasks: 
 
-* git
-* Python3 / pip3 /
-* MongoDB
-* Redis (Remember to secure Redis to private ip)
+* git 
+* Python3 / pip3 https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-centos-7
+* MongoDB https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-centos-7
+* Redis (Remember to secure Redis to private ip) https://www.linode.com/docs/databases/redis/install-and-configure-redis-on-centos-7/ or https://www.digitalocean.com/community/tutorials/how-to-install-secure-redis-centos-7
 
 For Centos 6.10 min install
 
@@ -41,16 +41,40 @@ For Centos 7
 
 .. code:: shell
 
-    yum -y update
-    yum -y install yum-utils
     yum -y groupinstall development
-    yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+    yum -y install https://centos7.iuscommunity.org/ius-release.rpm    
+    yum -y install epel-release
+    yum -y update
+    yum -y install vim screen yum-utils mongodb redis
+    systemctl start redis.service
+    systemctl enable redis
+    systemctl status redis.service
+    redis-cli ping
+    vim /etc/redis.conf ; \# edit to bind your private ip, normally 127.0.0.1 and requirepass foobared
+    firewall-cmd --permanent --new-zone=redis
+    firewall-cmd --permanent --zone=redis --add-port=6379/tcp
+    firewall-cmd --permanent --zone=redis --add-source=127.0.0.1
+    firewall-cmd --reload
+    systemctl restart redis.service
+    redis-cli
+    auth your_redis_password
+    set key1 10
+    get key1
+    quit
+    ls -l /var/lib | grep redis
+    chmod 770 /var/lib/redis
+    chown redis:redis /etc/redis.conf
+    chmod 660 /etc/redis.conf
+    ls -l /etc/redis.conf
+    service redis-server restart  
     yum -y install python36u \; \#(has a slightly lower minor release number than the EPEL one)
     python3.6 -V
     yum -y install python36u-pip
     yum -y install python36u-devel
     python3.6 -m venv fc
     cd fc
+    source bin/activate
+    pip install --upgrade pip
     git clone https://github.com/trevenen/flask-crunchy.git
     cd flask-crunchy (rename repository directory to desired value)
     pip3 install -r requirements.txt
