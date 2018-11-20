@@ -31,7 +31,7 @@ For Centos 6.10 min install
     python3.7 -V
     python3.7 -m venv fc
     cd fc
-    git clone https@github.com:trevenen/flask-crunchy.git
+    git clone https://github.com/trevenen/flask-crunchy.git
     cd flask-crunchy (rename repository directory to desired value)
     pip3 install -r requirements.txt
 
@@ -51,7 +51,7 @@ For Centos 7
     yum -y install python36u-devel
     python3.6 -m venv fc
     cd fc
-    git clone https@github.com:trevenen/flask-crunchy.git
+    git clone https://github.com/trevenen/flask-crunchy.git
     cd flask-crunchy (rename repository directory to desired value)
     pip3 install -r requirements.txt
 
@@ -63,7 +63,7 @@ For Ubuntu 18.04 LTS desktop or server,
 
     python3 -m venv fc
     cd fc
-    git clone https@github.com:trevenen/flask-crunchy.git
+    git clone https://github.com/trevenen/flask-crunchy.git
     cd flask-crunchy (rename repository directory to desired value)
     pip3 install -r requirements.txt
 
