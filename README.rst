@@ -13,11 +13,10 @@ Before you clone this make sure you have completed the Pre-required Setup Tasks:
 * MongoDB
 * Redis (Remember to secure Redis to private ip)
 
+For Centos 6.10
 
 
-For Centos 6.10:
-
-.. code:: shell / CLI
+.. code:: shell
 
     yum install gcc openssl-devel bzip2-devel
     cd /usr/src
@@ -34,7 +33,7 @@ For Centos 6.10:
 For Ubuntu 18.04 LTS desktop or server
 
 
-.. code:: shell / CLI
+.. code:: shell
 
     python3 -m venv fc
     cd fc
