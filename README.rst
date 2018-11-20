@@ -13,24 +13,50 @@ Before you clone this make sure you have completed the Pre-required Setup Tasks:
 * MongoDB
 * Redis (Remember to secure Redis to private ip)
 
-For Centos 6.10
+For Centos 6.10 min install
 
 
 .. code:: shell
 
-    yum install gcc openssl-devel bzip2-devel
+    yum update -y
+    yum groupinstall -y "development tools"
+    yum install -y wget zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
     cd /usr/src
     wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
     tar zxf Python-3.7.1.tgz 
     cd Python-3.7.1
     ./configure --enable-optimizations
     make altinstall
-    rm /usr/src/Python-3.7
+    rm /usr/src/Python-3.7.tgz
     python3.7 -V
-    python3.7 -m venv flask
-    
+    python3.7 -m venv fc
+    cd fc
+    git clone https@github.com:trevenen/flask-crunchy.git
+    cd flask-crunchy (rename repository directory to desired value)
+    pip3 install -r requirements.txt
 
-For Ubuntu 18.04 LTS desktop or server
+
+For Centos 7
+
+
+.. code:: shell
+
+    yum -y update
+    yum -y install yum-utils
+    yum -y groupinstall development
+    yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+    yum -y install python37u
+    python3.7 -V
+    yum -y install python37u-pip
+    yum -y install python37u-devel
+    python3.7 -m venv fc
+    cd fc
+    git clone https@github.com:trevenen/flask-crunchy.git
+    cd flask-crunchy (rename repository directory to desired value)
+    pip3 install -r requirements.txt
+
+
+For Ubuntu 18.04 LTS desktop or server, 
 
 
 .. code:: shell
